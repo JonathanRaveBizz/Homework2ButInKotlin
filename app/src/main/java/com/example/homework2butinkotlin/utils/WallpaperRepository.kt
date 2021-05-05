@@ -1,5 +1,6 @@
 package com.example.homework2butinkotlin.utils
 
+import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,6 +18,10 @@ class WallpaperRepository {
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
 
-    private val wallpaperAPIService = retrofit.create((WallpaperAPIService::class.java))
-    fun getWallpapers
+    private val wallpaperAPIService: WallpaperAPIService = retrofit.create((WallpaperAPIService::class.java))
+
+    fun getWallpaperObservable(){
+        page++;
+        return wallpaperAPIService.getWallpapers(API_KEY, method, id, page);
+    }
 }

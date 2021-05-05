@@ -20,10 +20,10 @@ class WallpaperRecyclerView: ViewModel()
     }
     fun loadWallpapers()
     {
-        wallRepo.wallpaperCall.enque(object : callback<WallpaperRequest?>)
+      /* wallRepo.wallpaperCall.enque(object : callback<WallpaperRequest?>)
         {
             call: call
-        }
+        }*/
     }
 
 
