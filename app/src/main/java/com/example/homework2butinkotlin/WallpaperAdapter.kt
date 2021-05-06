@@ -9,10 +9,12 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.homework2butinkotlin.utils.WallpaperItem
+import com.example.homework2butinkotlin.utils.WallpaperListener
 
 class WallpaperAdapter :RecyclerView.Adapter<WallpaperAdapter.ViewHolder>() {
-    //lateinit listener: wallpaperListener
-    var wallpaperList: List<WallpaperItem> = emptyList()
+    lateinit var listener: WallpaperListener
+
+    private var wallpaperList: List<WallpaperItem> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WallpaperAdapter.ViewHolder {
         val view = LayoutInflater
@@ -23,14 +25,15 @@ class WallpaperAdapter :RecyclerView.Adapter<WallpaperAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = wallpaperList.size
 
-    override fun onBindViewHolder(holder: WallpaperAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(wallpaperList[position])
     }
     fun updateList(newList: List<WallpaperItem>){
         this.wallpaperList= newList
         notifyDataSetChanged()
     }
-    inner class  ViewHolder(itemView : View): RecyclerView.ViewHolder(itemView) {
+
+    inner class  ViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
         private var wallpaperImageView: ImageView = itemView.findViewById(R.id.wallpaper_iv)
         private lateinit var wallpaperItem: WallpaperItem
 
@@ -42,6 +45,7 @@ class WallpaperAdapter :RecyclerView.Adapter<WallpaperAdapter.ViewHolder>() {
                     .into(wallpaperImageView)
             }
         }
+
     }
 
 
