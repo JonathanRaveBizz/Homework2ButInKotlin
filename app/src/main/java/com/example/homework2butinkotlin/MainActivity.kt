@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.homework2butinkotlin.ViewModels.WallpaperViewModel
 import com.example.homework2butinkotlin.fragments.Wallpaper
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -23,12 +24,15 @@ class MainActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.wallpaper_rv)
         recyclerView.apply{
             layoutManager= linearLayoutManager
-            adapter = WallpaperAdapter()
+            adapter = WallpaperAdapter().apply {
+                //listener = this@MainActivity
+            }
 
         }
 
         viewmodel = ViewModelProvider(this).get(WallpaperViewModel::class.java)
-        viewmodel.get
+        viewmodel.getWallpapers()
+
 
     }
 }

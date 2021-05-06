@@ -4,6 +4,7 @@ import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import io.reactivex.Observable
 
 class WallpaperRepository {
     private val BASE_URL = "https://wall.alphacoders.com/api2.0/"
@@ -20,7 +21,7 @@ class WallpaperRepository {
 
     private val wallpaperAPIService: WallpaperAPIService = retrofit.create((WallpaperAPIService::class.java))
 
-    fun getWallpaperObservable(){
+    fun getWallpaperObservable(): Single<List<WallpaperItem>> {
         page++;
         return wallpaperAPIService.getWallpapers(API_KEY, method, id, page);
     }

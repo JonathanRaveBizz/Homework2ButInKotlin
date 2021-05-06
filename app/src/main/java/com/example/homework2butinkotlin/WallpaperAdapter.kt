@@ -12,7 +12,7 @@ import com.example.homework2butinkotlin.utils.WallpaperItem
 
 class WallpaperAdapter :RecyclerView.Adapter<WallpaperAdapter.ViewHolder>() {
     //lateinit listener: wallpaperListener
-    private var wallpaperList: List<WallpaperItem> = emptyList()
+    var wallpaperList: List<WallpaperItem> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WallpaperAdapter.ViewHolder {
         val view = LayoutInflater
