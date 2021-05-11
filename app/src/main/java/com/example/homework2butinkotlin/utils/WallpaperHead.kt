@@ -12,14 +12,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class WallpaperItem (
+data class WallpaperHead (
 
-	@SerializedName("id") val id : Int,
-	@SerializedName("width") val width : Int,
-	@SerializedName("height") val height : Int,
-	@SerializedName("file_type") val file_type : String,
-	@SerializedName("file_size") val file_size : Int,
-	@SerializedName("url_image") val url_image : String,
-	@SerializedName("url_thumb") val url_thumb : String,
-	@SerializedName("url_page") val url_page : String,
+	@SerializedName("success") val success : Boolean,
+	@SerializedName("wallpapers") val wallpapers : List<WallpaperItem>
 )

@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.homework2butinkotlin.R
 import com.example.homework2butinkotlin.ViewModels.WallpaperViewModel
+import com.example.homework2butinkotlin.databinding.WallpaperFragmentBinding
 
 class Wallpaper : Fragment() {
+    private lateinit var binding: WallpaperFragmentBinding
 
     companion object {
         fun newInstance() = Wallpaper()
@@ -21,7 +23,10 @@ class Wallpaper : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.wallpaper_fragment, container, false)
+        binding = WallpaperFragmentBinding.inflate(inflater, container, false)
+        var view = binding.root
+        return view
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

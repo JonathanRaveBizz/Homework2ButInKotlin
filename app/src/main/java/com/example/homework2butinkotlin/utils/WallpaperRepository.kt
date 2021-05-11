@@ -1,5 +1,8 @@
 package com.example.homework2butinkotlin.utils
 
+import WallpaperHead
+import WallpaperItem
+import com.example.homework2butinkotlin.fragments.Wallpaper
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -21,8 +24,12 @@ class WallpaperRepository {
 
     private val wallpaperAPIService: WallpaperAPIService = retrofit.create((WallpaperAPIService::class.java))
 
-    fun getWallpaperObservable(): Single<List<WallpaperItem>> {
+    fun getWallpaperObservable(): Single<WallpaperHead> {
         page++;
+        return wallpaperAPIService.getWallpapers(API_KEY, method, id, page);
+    }
+    fun getReverseWallpaperObservable(): Single<WallpaperHead> {
+        page--;
         return wallpaperAPIService.getWallpapers(API_KEY, method, id, page);
     }
 }

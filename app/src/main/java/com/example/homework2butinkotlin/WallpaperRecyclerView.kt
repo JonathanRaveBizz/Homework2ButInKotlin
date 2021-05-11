@@ -1,8 +1,8 @@
 package com.example.homework2butinkotlin
 
+import WallpaperItem
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.homework2butinkotlin.utils.WallpaperItem
 import com.example.homework2butinkotlin.utils.WallpaperRepository
 
 class WallpaperRecyclerView: ViewModel()

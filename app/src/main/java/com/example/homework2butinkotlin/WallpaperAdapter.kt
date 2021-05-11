@@ -1,5 +1,6 @@
 package com.example.homework2butinkotlin
 
+import WallpaperItem
 import android.text.Layout
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -8,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.homework2butinkotlin.utils.WallpaperItem
 import com.example.homework2butinkotlin.utils.WallpaperListener
 
 class WallpaperAdapter :RecyclerView.Adapter<WallpaperAdapter.ViewHolder>() {
@@ -33,6 +33,12 @@ class WallpaperAdapter :RecyclerView.Adapter<WallpaperAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
+    fun addToList(newList:List<WallpaperItem>) {
+        wallpaperList = wallpaperList+newList
+        notifyDataSetChanged()
+    }
+
+
     inner class  ViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
         private var wallpaperImageView: ImageView = itemView.findViewById(R.id.wallpaper_iv)
         private lateinit var wallpaperItem: WallpaperItem
@@ -41,12 +47,11 @@ class WallpaperAdapter :RecyclerView.Adapter<WallpaperAdapter.ViewHolder>() {
             wallpaperItem = paper
             wallpaperImageView.apply {
                 Glide.with(itemView)
-                    .load(wallpaperItem.urlImage)
+                    .load(paper.url_image)
                     .into(wallpaperImageView)
             }
         }
 
     }
-
-
 }
+
